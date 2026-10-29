@@ -7,6 +7,13 @@ Read-only audit of the **Plusminus Studio** Webflow site, 29 Oct 2026. Nothing i
 - **No custom domain.** The only live address is `plusminus-studio-a7d432.webflow.io`, so "staging" and "live" are currently the same site
 - One locale (English). A second site in the workspace, *Albatross Lounge*, is untouched
 
+## Owner answers (29 Oct 2026)
+
+- **Backup:** created by the owner on 29 Oct 2026, before any change.
+- **Plan:** Basic site plan. Basic includes custom code and 301 redirects but **not the CMS**. Projects, Insights, Proposals and the planned Services and Price items collections all need the CMS (now called Premium) plan before launch.
+- **Case studies:** all four are real clients, UK-based. They are not concepts. Australian concept projects may be added later.
+- **Email domain:** `.com` (hello@plusminusstudios.com).
+
 ## MCP access
 
 | Works without the Designer open | Needs the MCP Bridge App open in the Designer |
@@ -58,7 +65,7 @@ Every main page has an SEO title, description and Open Graph image. The OG image
 | Client Logo, Color | — | Keep |
 | — | Is concept, Services, Year, Live URL, Hero video, What we removed, What we added, Results, Order | Add |
 
-The item content says Midlands Concrete was built on WordPress and Verso on YOOtheme/ZOO, so those read as real client work. Each item's "Is concept" status still needs confirming.
+All four are real UK clients (owner confirmed), so "Is concept" is off for each. New Australian concept projects will have it on.
 
 Item slugs: `midlands-concrete`, `verso-properties`, `the-middle-green-website-redesign`, `varanasi-indian-restaurant`.
 
@@ -125,6 +132,6 @@ There is one `Enquiry Form` inside the `contact_form` component, used on Home an
 
 1. **The live site is the staging site.** With no custom domain, anything published to webflow.io is public. v2 pages must stay draft or noindex, and every publish needs care.
 2. **A client proposal is public.** `/proposals/awmn-girls-torque` is published and includes the quote. Consider password-protecting the Proposals template or moving proposals off the public site.
-3. **Plan.** The plan can't be read through the API. Custom code (for the animation bundle) and 301 redirects both need a paid Site plan.
-4. **Backup.** None was confirmed before this audit. One is needed before any change.
-5. **URL scheme.** Moving `/project/*` to `/work/*` or `/insights-resources/*` to `/journal/*` needs 301 redirects, which need a paid plan.
+3. **Plan.** Basic site plan (owner confirmed). Custom code and 301 redirects are available. The CMS isn't included on Basic, so the site needs the CMS/Premium plan before launch.
+4. **Backup.** Created by the owner on 29 Oct 2026.
+5. **URL scheme.** Moving `/project/*` to `/work/*` or `/insights-resources/*` to `/journal/*` needs 301 redirects (available on Basic).
