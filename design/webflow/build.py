@@ -34,10 +34,13 @@ CSS_BASE = """
 .container-large { width: 100%; max-width: 90rem; margin-left: auto; margin-right: auto; }
 .padding-section-large { padding-top: var(--space-160); padding-bottom: var(--space-160); }
 .padding-section-medium { padding-top: var(--space-96); padding-bottom: var(--space-96); }
-.heading-style-display { font-family: var(--font-display); font-size: clamp(4rem, 15.3vw, var(--text-hero)); font-weight: 400; line-height: 0.88; letter-spacing: -0.04em; margin-top: 0; margin-bottom: 0; }
-.heading-style-h1 { font-family: var(--font-display); font-weight: 400; font-size: clamp(3rem, 6.7vw, var(--text-96)); line-height: 0.95; letter-spacing: -0.03em; margin-top: 0; margin-bottom: 0; }
-.heading-style-h2 { font-family: var(--font-display); font-weight: 400; font-size: clamp(2.5rem, 4.5vw, var(--text-64)); line-height: 1.02; letter-spacing: -0.02em; margin-top: 0; margin-bottom: 0; }
-.heading-style-h3 { font-family: var(--font-display); font-weight: 400; font-size: clamp(1.75rem, 2.8vw, var(--text-40)); line-height: 1.05; letter-spacing: -0.02em; margin-top: 0; margin-bottom: 0; }
+.heading-style-display { font-family: var(--font-display); font-size: clamp(3.5rem, 16vw, 13.75rem); font-weight: 400; line-height: 0.88; letter-spacing: -0.04em; margin-top: 0; margin-bottom: 0; }
+.heading-line { display: block; white-space: nowrap; }
+.heading-line.is-indent-3 { padding-left: 25%; }
+.heading-line.is-indent-6 { padding-left: 50%; }
+.heading-style-h1 { font-family: var(--font-display); font-weight: 400; font-size: clamp(3rem, 6.7vw, 6rem); line-height: 0.95; letter-spacing: -0.03em; margin-top: 0; margin-bottom: 0; }
+.heading-style-h2 { font-family: var(--font-display); font-weight: 400; font-size: clamp(2.5rem, 4.5vw, 4rem); line-height: 1.02; letter-spacing: -0.02em; margin-top: 0; margin-bottom: 0; }
+.heading-style-h3 { font-family: var(--font-display); font-weight: 400; font-size: clamp(1.75rem, 2.8vw, 2.5rem); line-height: 1.05; letter-spacing: -0.02em; margin-top: 0; margin-bottom: 0; }
 .heading-style-h4 { font-family: var(--font-display); font-weight: 400; font-size: var(--text-28); line-height: 1.1; letter-spacing: -0.01em; margin-top: 0; margin-bottom: 0; }
 .text-size-large { font-size: var(--text-20); line-height: 1.45; }
 .text-size-medium { font-size: 1.125rem; line-height: 1.5; }
@@ -59,7 +62,7 @@ CSS_BASE = """
 .pm-button.is-small { padding-top: 0.625rem; padding-right: 1rem; padding-bottom: 0.625rem; padding-left: 0.75rem; font-size: var(--text-14); column-gap: 0.5rem; }
 @media screen and (max-width: 991px) { .padding-section-large { padding-top: 7.5rem; padding-bottom: 7.5rem; } }
 @media screen and (max-width: 767px) { .padding-global { padding-left: 1.5rem; padding-right: 1.5rem; } .padding-section-large { padding-top: 5rem; padding-bottom: 5rem; } }
-@media screen and (max-width: 479px) { .padding-global { padding-left: 1rem; padding-right: 1rem; } .heading-style-display { font-size: 5.5rem; } }
+@media screen and (max-width: 479px) { .padding-global { padding-left: 1rem; padding-right: 1rem; } }
 """
 
 CSS_NAV = """
@@ -90,22 +93,22 @@ NAV = f"""<header class="nav_component" data-pm-nav=""><div class="padding-globa
 
 CSS_SG = """
 .section_styleguide { border-bottom: 1px solid var(--color-line); }
-.styleguide_header { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--space-24); margin-bottom: var(--space-96); }
-.styleguide_index { grid-column: span 3; color: var(--color-mid); }
-.styleguide_title { grid-column: span 9; }
+.styleguide_header { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr; column-gap: var(--space-24); margin-bottom: var(--space-96); }
+.styleguide_index { grid-column-start: span 3; grid-column-end: span 3; color: var(--color-mid); }
+.styleguide_title { grid-column-start: span 9; grid-column-end: span 9; }
 .styleguide_hero { padding-top: var(--space-160); padding-bottom: var(--space-96); }
 .styleguide_hero-meta { display: flex; justify-content: space-between; column-gap: var(--space-24); color: var(--color-mid); margin-bottom: var(--space-64); }
-.styleguide_hero-sub { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--space-24); margin-top: var(--space-64); align-items: end; }
-.styleguide_hero-sub-text { grid-column: 7 / span 4; }
-.styleguide_hero-ctas { grid-column: 7 / span 6; display: flex; flex-wrap: wrap; column-gap: var(--space-16); row-gap: var(--space-16); margin-top: var(--space-32); }
-@media screen and (max-width: 991px) { .styleguide_hero-sub-text { grid-column: 1 / span 8; } .styleguide_hero-ctas { grid-column: 1 / span 12; } .styleguide_index { grid-column: span 12; margin-bottom: var(--space-16); } .styleguide_title { grid-column: span 12; } }
+.styleguide_hero-sub { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr; column-gap: var(--space-24); margin-top: var(--space-64); align-items: end; }
+.styleguide_hero-sub-text { grid-column-start: 7; grid-column-end: 11; }
+.styleguide_hero-ctas { grid-column-start: 7; grid-column-end: 13; display: flex; flex-wrap: wrap; column-gap: var(--space-16); row-gap: var(--space-16); margin-top: var(--space-32); }
+@media screen and (max-width: 991px) { .styleguide_hero-sub-text { grid-column-start: 1; grid-column-end: 9; } .styleguide_hero-ctas { grid-column-start: 1; grid-column-end: 13; } .styleguide_index { grid-column-start: span 12; grid-column-end: span 12; margin-bottom: var(--space-16); } .styleguide_title { grid-column-start: span 12; grid-column-end: span 12; } }
 @media screen and (max-width: 767px) { .styleguide_hero-meta { flex-direction: column; row-gap: var(--space-8); } }
-@media screen and (max-width: 479px) { .styleguide_hero-sub-text { grid-column: 1 / span 12; } }
+@media screen and (max-width: 479px) { .styleguide_hero-sub-text { grid-column-start: 1; grid-column-end: 13; } }
 """
 
 HERO = f"""<section class="section_styleguide"><div class="padding-global"><div class="container-large styleguide_hero">
 <div class="styleguide_hero-meta text-style-mono"><div>v2 Styleguide</div><div>Checkpoint 01 · Foundations</div><div>Boorloo / Perth, WA</div></div>
-<h1 class="heading-style-display"><span class="pm-mark">+</span>Enquiries<br><span class="pm-mark">−</span>Excuses.</h1>
+<h1 class="heading-style-display"><span class="heading-line"><span class="pm-mark">+</span>Adding</span><span class="heading-line is-indent-3">value.</span><span class="heading-line"><span class="pm-mark">−</span>Subtracting</span><span class="heading-line is-indent-6">hassle.</span></h1>
 <div class="styleguide_hero-sub"><p class="styleguide_hero-sub-text text-size-large margin-0">Perth web design studio. Fixed prices, fast sites, and someone you can meet for a coffee.</p>
 <div class="styleguide_hero-ctas">{btn("Get a free website review")}{btn("See the work", "→", "is-secondary")}</div></div>
 </div></div></section>"""
@@ -114,7 +117,7 @@ def header(idx, title):
     return f'<div class="styleguide_header"><div class="styleguide_index text-style-mono">{idx}</div><h2 class="styleguide_title heading-style-h2">{title}</h2></div>'
 
 CSS_COLOUR = """
-.styleguide_swatches { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); column-gap: var(--space-24); row-gap: var(--space-24); }
+.styleguide_swatches { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr 1fr; column-gap: var(--space-24); row-gap: var(--space-24); }
 .styleguide_swatch { display: flex; flex-direction: column; row-gap: var(--space-16); }
 .styleguide_chip { aspect-ratio: 4 / 3; border-radius: var(--radius-8); border: 1px solid var(--color-line); }
 .styleguide_chip.is-ink { background-color: var(--color-ink); }
@@ -122,14 +125,14 @@ CSS_COLOUR = """
 .styleguide_chip.is-line { background-color: var(--color-line); }
 .styleguide_chip.is-bone { background-color: var(--color-bone); }
 .styleguide_chip.is-mid { background-color: var(--color-mid); }
-.styleguide_accents { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--space-24); row-gap: var(--space-24); margin-top: var(--space-48); }
+.styleguide_accents { display: grid; grid-template-columns: 1fr 1fr; column-gap: var(--space-24); row-gap: var(--space-24); margin-top: var(--space-48); }
 .styleguide_accent { display: flex; flex-direction: column; row-gap: var(--space-32); padding: var(--space-32); border: 1px solid var(--color-line); border-radius: var(--radius-12); background-color: var(--color-graphite); }
 .styleguide_accent.styleguide_variant-b { position: relative; }
 .styleguide_accent-chip { height: 10rem; border-radius: var(--radius-8); background-color: var(--color-signal); }
 .styleguide_accent-row { display: flex; flex-wrap: wrap; align-items: center; column-gap: var(--space-16); row-gap: var(--space-16); }
-@media screen and (max-width: 991px) { .styleguide_swatches { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-@media screen and (max-width: 767px) { .styleguide_accents { grid-template-columns: minmax(0, 1fr); } }
-@media screen and (max-width: 479px) { .styleguide_swatches { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media screen and (max-width: 991px) { .styleguide_swatches { grid-template-columns: 1fr 1fr 1fr; } }
+@media screen and (max-width: 767px) { .styleguide_accents { grid-template-columns: 1fr; } }
+@media screen and (max-width: 479px) { .styleguide_swatches { grid-template-columns: 1fr 1fr; } }
 """
 
 def swatch(mod, name, hexv, use):
@@ -150,10 +153,10 @@ COLOUR = ('<section class="section_styleguide"><div class="padding-global"><div 
     + '</div></div></section>')
 
 CSS_TYPE = """
-.styleguide_type-row { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--space-24); align-items: baseline; padding-top: var(--space-32); padding-bottom: var(--space-32); border-top: 1px solid var(--color-line); }
-.styleguide_type-spec { grid-column: span 3; color: var(--color-mid); }
-.styleguide_type-sample { grid-column: span 9; min-width: 0; }
-@media screen and (max-width: 991px) { .styleguide_type-spec { grid-column: span 12; margin-bottom: var(--space-16); } .styleguide_type-sample { grid-column: span 12; } }
+.styleguide_type-row { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr; column-gap: var(--space-24); align-items: baseline; padding-top: var(--space-32); padding-bottom: var(--space-32); border-top: 1px solid var(--color-line); }
+.styleguide_type-spec { grid-column-start: span 3; grid-column-end: span 3; color: var(--color-mid); }
+.styleguide_type-sample { grid-column-start: span 9; grid-column-end: span 9; min-width: 0; }
+@media screen and (max-width: 991px) { .styleguide_type-spec { grid-column-start: span 12; grid-column-end: span 12; margin-bottom: var(--space-16); } .styleguide_type-sample { grid-column-start: span 12; grid-column-end: span 12; } }
 """
 ROWS = [
     ("Display · Cal Sans<br>220 / 0.88 / −4%", "heading-style-display", "Add. Remove."),
@@ -174,12 +177,12 @@ TYPE = ('<section class="section_styleguide"><div class="padding-global"><div cl
 CSS_ACTIONS = """
 .styleguide_buttons { display: flex; flex-wrap: wrap; align-items: center; column-gap: var(--space-24); row-gap: var(--space-24); }
 .styleguide_note { margin-top: var(--space-32); }
-.styleguide_pairs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid var(--color-line); }
+.styleguide_pairs { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--color-line); }
 .styleguide_pair-col { display: flex; flex-direction: column; padding-top: var(--space-32); }
 .styleguide_pair-col.is-right { border-left: 1px solid var(--color-line); padding-left: var(--space-32); }
 .styleguide_pair-item { display: flex; align-items: baseline; column-gap: var(--space-16); padding-top: var(--space-16); padding-bottom: var(--space-16); border-bottom: 1px solid var(--color-line); }
 .pm-mark.is-list { width: 1.5rem; flex: none; font-size: var(--text-28); line-height: 1; }
-@media screen and (max-width: 767px) { .styleguide_pairs { grid-template-columns: minmax(0, 1fr); } .styleguide_pair-col.is-right { border-left-width: 0; padding-left: 0; } }
+@media screen and (max-width: 767px) { .styleguide_pairs { grid-template-columns: 1fr; } .styleguide_pair-col.is-right { border-left-width: 0; padding-left: 0; } }
 """
 ACTIONS = ('<section class="section_styleguide"><div class="padding-global"><div class="container-large padding-section-large">'
     + header("03 / Actions", "One primary action per screen. Everything else steps back.")
@@ -198,11 +201,11 @@ LISTS = ('<section class="section_styleguide"><div class="padding-global"><div c
     + '</div></div></section>')
 
 CSS_GRID = """
-.styleguide_grid-demo { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--space-24); height: 12rem; }
+.styleguide_grid-demo { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr; column-gap: var(--space-24); height: 12rem; }
 .styleguide_grid-col { position: relative; border-left: 1px solid var(--color-line); border-right: 1px solid var(--color-line); }
 .styleguide_grid-plus { position: absolute; top: -0.6rem; left: -0.35rem; font-family: var(--font-mono); font-size: var(--text-12); line-height: 1; color: var(--color-mid); }
 .styleguide_grid-col.is-desktop { position: relative; }
-@media screen and (max-width: 767px) { .styleguide_grid-demo { grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: var(--space-16); } .styleguide_grid-col.is-desktop { display: none; } }
+@media screen and (max-width: 767px) { .styleguide_grid-demo { grid-template-columns: 1fr 1fr 1fr 1fr; column-gap: var(--space-16); } .styleguide_grid-col.is-desktop { display: none; } }
 """
 GRID = ('<section class="section_styleguide"><div class="padding-global"><div class="container-large padding-section-large">'
     + header("05 / Grid", "12 columns, 1440 max, 24 gutters. Hairlines where the + crosshair helps.")
@@ -212,19 +215,19 @@ GRID = ('<section class="section_styleguide"><div class="padding-global"><div cl
 
 CSS_FOOTER = """
 .footer_component { border-top: 1px solid var(--color-line); }
-.footer_top { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--space-24); row-gap: var(--space-48); padding-top: var(--space-96); padding-bottom: var(--space-96); }
-.footer_col { display: flex; flex-direction: column; row-gap: var(--space-16); grid-column: span 3; }
-.footer_col.is-wide { grid-column: span 6; }
+.footer_top { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr; column-gap: var(--space-24); row-gap: var(--space-48); padding-top: var(--space-96); padding-bottom: var(--space-96); }
+.footer_col { display: flex; flex-direction: column; row-gap: var(--space-16); grid-column-start: span 3; grid-column-end: span 3; }
+.footer_col.is-wide { grid-column-start: span 6; grid-column-end: span 6; }
 .footer_heading { color: var(--color-mid); margin-bottom: var(--space-8); }
 .footer_link { color: var(--color-bone); text-decoration: none; font-size: var(--text-16); transition: color 0.4s EASE; }
 .footer_link:hover { color: var(--color-signal); }
-.footer_link.is-large { font-family: var(--font-display); font-size: clamp(1.75rem, 2.8vw, var(--text-40)); letter-spacing: -0.02em; line-height: 1.1; overflow-wrap: anywhere; }
+.footer_link.is-large { font-family: var(--font-display); font-size: clamp(1.75rem, 2.8vw, 2.5rem); letter-spacing: -0.02em; line-height: 1.1; overflow-wrap: anywhere; }
 .footer_acknowledgement { color: var(--color-mid); max-width: 30rem; }
 .footer_wordmark { display: block; width: 100%; height: auto; }
 .footer_bottom { display: flex; justify-content: space-between; align-items: center; column-gap: var(--space-24); row-gap: var(--space-8); padding-top: var(--space-24); padding-bottom: var(--space-32); color: var(--color-mid); }
-@media screen and (max-width: 991px) { .footer_col { grid-column: span 6; } .footer_col.is-wide { grid-column: span 12; } }
+@media screen and (max-width: 991px) { .footer_col { grid-column-start: span 6; grid-column-end: span 6; } .footer_col.is-wide { grid-column-start: span 12; grid-column-end: span 12; } }
 @media screen and (max-width: 767px) { .footer_bottom { flex-direction: column; align-items: flex-start; } }
-@media screen and (max-width: 479px) { .footer_col { grid-column: span 12; } .footer_link.is-large { font-size: 1.5rem; } }
+@media screen and (max-width: 479px) { .footer_col { grid-column-start: span 12; grid-column-end: span 12; } .footer_link.is-large { font-size: 1.5rem; } }
 """
 FOOTER = f"""<footer class="footer_component"><div class="padding-global"><div class="container-large">
 <div class="footer_top">
