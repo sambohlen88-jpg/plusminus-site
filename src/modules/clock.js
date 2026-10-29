@@ -1,16 +1,17 @@
-// data-pm-clock: Perth time (AWST), updates each minute.
+// data-pm-clock: Perth time (AWST) as "12:45pm", updates each minute.
 const fmt = new Intl.DateTimeFormat('en-AU', {
   timeZone: 'Australia/Perth',
-  hour: '2-digit',
+  hour: 'numeric',
   minute: '2-digit',
-  hour12: false,
+  hour12: true,
 });
+const perthTime = () => fmt.format(new Date()).replace(/\s/g, '').toLowerCase();
 
 export function init(root) {
   const els = root.querySelectorAll('[data-pm-clock]');
   if (!els.length) return () => {};
 
-  const tick = () => els.forEach((el) => (el.textContent = fmt.format(new Date())));
+  const tick = () => els.forEach((el) => (el.textContent = perthTime()));
   tick();
   let interval;
   // Align to the next minute boundary, then tick every 60s.
