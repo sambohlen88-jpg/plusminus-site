@@ -4,6 +4,8 @@ Design decisions the brief didn't specify. Newest first.
 
 | Date | Decision | Why | Owner OK? |
 | --- | --- | --- | --- |
+| 2026-10-30 | Hero A chosen. It's published at `/homev2` alongside the current home page. Variant B stays as a draft (`/v2-b`). | Owner approved hero A and asked for it on a separate page. | Yes |
+| 2026-10-30 | Nav wordmark height raised from 24px to 32px (28px below 479px). | Owner asked for a bigger logo. | Yes |
 | 2026-10-30 | Hero headline for both variants: "Websites for Perth businesses. Less fluff, more phone calls." The second sentence is set in mid grey. | It's the brief's third headline option. The hero's character comes from the ± field, not a slogan (owner feedback). The grey adds a + / − rhythm inside one line. | Pending |
 | 2026-10-30 | Marks turn into − by collapsing the vertical arm and slightly widening the horizontal one. They don't rotate 90°. | A + rotated 90° looks identical, and part-way through the turn it reads as × ("close"). | Pending |
 | 2026-10-30 | The ± logo is a 9 × 14 dot matrix. The plus is made of + marks drawn in bone, and the minus bar is made of − marks. | It reads as the logo at hero scale, and the minus half is literally made of minuses. | Pending |

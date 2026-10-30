@@ -175,7 +175,7 @@
   height: 4.5rem;
 }
 .nav_brand { display: inline-flex; align-items: center; justify-self: start; }
-.nav_logo { display: block; height: 1.5rem; width: auto; }
+.nav_logo { display: block; height: 2rem; width: auto; }
 .nav_menu { display: flex; align-items: center; gap: var(--space-32); }
 .nav_link {
   color: var(--color-bone);
@@ -350,6 +350,7 @@
 }
 
 @media screen and (max-width: 479px) {
+  .nav_logo { height: 1.75rem; }
   .padding-global { padding-left: 1rem; padding-right: 1rem; }
   .nav_right .pm-button { display: none; }
   .footer_link.is-large { font-size: 1.5rem; }
