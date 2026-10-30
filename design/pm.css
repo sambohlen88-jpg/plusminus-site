@@ -101,6 +101,7 @@
 .text-color-mid { color: var(--color-mid); }
 .text-color-signal { color: var(--color-signal); }
 .max-width-medium { max-width: 36rem; }
+.margin-0 { margin: 0; }
 
 /* The + and − marks. Always the accent colour. */
 .pm-mark {
@@ -229,6 +230,32 @@
   color: var(--color-mid);
 }
 
+
+/* ---------- Hero (± field) ---------- */
+
+.section_hero { position: relative; display: flex; flex-direction: column; min-height: calc(100svh - 4.5rem); overflow: hidden; border-bottom: 1px solid var(--color-line); }
+.hero_field {
+  position: absolute; inset: 0; pointer-events: none;
+  color: var(--color-line); /* mark colour, read by the canvas */
+  background-image: url(assets/pm-plus-tile.svg); background-position: 50% 50%; background-size: 40px 40px;
+}
+.hero_padding { position: relative; z-index: 1; display: flex; flex: 1; }
+.hero_container { display: flex; flex-direction: column; justify-content: space-between; row-gap: var(--space-64); padding-top: var(--space-32); padding-bottom: var(--space-48); }
+.hero_promise { display: flex; flex-wrap: wrap; column-gap: var(--space-32); row-gap: var(--space-8); color: var(--color-bone); }
+.hero_bottom { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr; column-gap: var(--space-24); row-gap: var(--space-32); align-items: end; }
+.hero_heading { grid-column: span 8 / span 8; }
+.hero_aside { grid-column: 9 / 13; display: flex; flex-direction: column; row-gap: var(--space-32); }
+.hero_ctas { display: flex; flex-wrap: wrap; gap: var(--space-16); }
+
+/* Variant B: the ± holds on the right, copy on the left. */
+.hero_container.is-split { justify-content: center; }
+.hero_split { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr; column-gap: var(--space-24); align-items: center; flex: 1; }
+.hero_copy { grid-column: span 7 / span 7; display: flex; flex-direction: column; row-gap: var(--space-32); }
+.hero_eyebrow { color: var(--color-mid); }
+.hero_promise.is-rule { padding-top: var(--space-24); border-top: 1px solid var(--color-line); }
+
+.pm-line { padding-bottom: 0.06em; } /* SplitText line mask: keep descenders */
+
 /* ---------- Styleguide page only ---------- */
 
 .section_styleguide { border-bottom: 1px solid var(--color-line); }
@@ -288,6 +315,9 @@
 /* ---------- Breakpoints ---------- */
 
 @media screen and (max-width: 991px) {
+  .hero_heading { grid-column: span 12 / span 12; }
+  .hero_aside { grid-column: 1 / 9; }
+  .hero_copy { grid-column: span 8 / span 8; }
   .padding-section-large { padding-top: 7.5rem; padding-bottom: 7.5rem; }
   .nav_menu { display: none; }
   .nav_container { grid-template-columns: 1fr auto; }
@@ -304,6 +334,9 @@
 }
 
 @media screen and (max-width: 767px) {
+  .hero_aside { grid-column: 1 / 13; }
+  .hero_copy { grid-column: span 12 / span 12; }
+  .hero_split { align-items: end; padding-top: 52svh; }
   .padding-global { padding-left: 1.5rem; padding-right: 1.5rem; }
   .padding-section-large { padding-top: 5rem; padding-bottom: 5rem; }
   .nav_clock { display: none; }

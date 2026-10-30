@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>v2 Home B · ± field hero</title>
+<link rel="stylesheet" href="pm.css">
+<!-- Same as the Webflow page embed: hide reveal text only while JS is running, with a fail-safe. -->
+<style>@media (prefers-reduced-motion: no-preference) { html.pm-js [data-pm-reveal] { visibility: hidden; } }</style>
+<script>document.documentElement.classList.add('pm-js');setTimeout(function(){if(!window.PM)document.documentElement.classList.remove('pm-js')},4000);</script>
+</head>
+<body style="margin:0">
+<div class="page-wrapper">
+  <!-- v2 Nav (Webflow component) -->
+  <header class="nav_component">
+    <div class="padding-global">
+      <div class="container-large">
+        <nav class="nav_container" aria-label="Main">
+          <a href="/" class="nav_brand" aria-label="PlusMinus Studios home">
+            <img src="assets/plusminus-wordmark.svg" alt="PlusMinus Studios" class="nav_logo" width="75" height="24">
+          </a>
+          <div class="nav_menu">
+            <a href="/projects" class="nav_link">Work</a>
+            <a href="/services" class="nav_link">Services</a>
+            <a href="/pricing" class="nav_link">Pricing</a>
+            <a href="#" class="nav_link">Process</a>
+            <a href="/insights-resources" class="nav_link">Journal</a>
+          </div>
+          <div class="nav_right">
+            <div class="nav_clock text-style-mono">
+              <span class="nav_clock-dot"></span>
+              <span>Perth <span data-pm-clock>12:45pm</span></span>
+            </div>
+            <a href="/contact" class="pm-button is-small"><span class="pm-button_icon" aria-hidden="true">+</span><span>Free Website Review</span></a>
+            <button class="nav_menu-button text-style-mono" type="button">Menu</button>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <main class="main-wrapper">
+    <section class="section_hero">
+      <div class="hero_field" data-pm-field data-pm-field-logo="hold" data-pm-field-align="right"></div>
+      <div class="padding-global hero_padding">
+        <div class="container-large hero_container is-split">
+          <div class="hero_split">
+            <div class="hero_copy">
+              <div class="hero_eyebrow text-style-mono" data-pm-reveal="fade" data-pm-reveal-after="field">PlusMinus Studios · Boorloo / Perth</div>
+              <h1 class="heading-style-h1" data-pm-reveal="lines" data-pm-reveal-after="field" data-pm-reveal-delay="0.1">Websites for Perth businesses. <span class="text-color-mid">Less fluff, more phone calls.</span></h1>
+              <p class="text-size-large margin-0 max-width-medium" data-pm-reveal="fade" data-pm-reveal-after="field" data-pm-reveal-delay="0.35">Perth web design studio. Fixed prices, fast sites, and someone you can meet for a coffee.</p>
+              <div class="hero_ctas" data-pm-reveal="fade" data-pm-reveal-after="field" data-pm-reveal-delay="0.45"><a href="/contact" class="pm-button"><span class="pm-button_icon" aria-hidden="true">+</span><span>Get a free website review</span></a><a href="/projects" class="pm-button is-secondary"><span class="pm-button_icon" aria-hidden="true">→</span><span>See the work</span></a></div>
+            </div>
+          </div>
+          <div class="hero_promise is-rule text-style-mono" data-pm-reveal="fade" data-pm-reveal-after="field" data-pm-reveal-delay="0.6"><span><span class="pm-mark">+</span> Fixed price</span><span><span class="pm-mark">−</span> Lock-in contracts</span><span><span class="pm-mark">+</span> You own it</span></div>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+<script src="../node_modules/gsap/dist/gsap.min.js"></script>
+<script src="../node_modules/gsap/dist/SplitText.min.js"></script>
+<script src="../dist/pm.js" defer></script>
+</body>
+</html>

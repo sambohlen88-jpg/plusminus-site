@@ -3,10 +3,12 @@
 // when their data-pm-* hook is on the page; content stays in the Webflow DOM.
 import { inWebflowEditor, reducedMotion } from './utils/env.js';
 import * as clock from './modules/clock.js';
+import * as field from './modules/pm-field.js';
+import * as reveal from './modules/reveal.js';
 
-const MODULES = [clock];
+const MODULES = [clock, field, reveal];
 // Added per milestone: lenis, cursor, loader, transitions (core);
-// pm-field, reveal, marquee, subtraction, work-gallery, price-builder (modules).
+// marquee, subtraction, work-gallery, price-builder (modules).
 
 let destroyers = [];
 
