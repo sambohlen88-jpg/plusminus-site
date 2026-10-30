@@ -11,7 +11,7 @@ new one.
 ## Proposed URL structure
 
 The brief's nav is Work, Services, Pricing, Process, Journal. The current URLs
-are Projects and Insights & Resources. The proposal is to match the nav.
+are Projects and Insights & Resources. The owner approved matching the nav (30 Oct 2026).
 
 | Page | Current URL | New URL | Redirect |
 | --- | --- | --- | --- |
@@ -20,7 +20,7 @@ are Projects and Insights & Resources. The proposal is to match the nav.
 | Case study | `/project/{slug}` | `/work/{slug}` | `/project/(.*)` → `/work/%1` |
 | Services index | `/services` | `/services` | none |
 | Service page | (new) | `/services/{slug}` | none |
-| Pricing | `/pricing` | `/pricing` | none |
+| Pricing | `/pricing` | `/pricing` | none (v2 currently previews at `/pricingv2`) |
 | Process / About | (new) | `/process` | none |
 | Journal index | `/insights-resources` | `/journal` | `/insights-resources` → `/journal` |
 | Article | `/insights-resources/{slug}` | `/journal/{slug}` | `/insights-resources/(.*)` → `/journal/%1` |
@@ -28,6 +28,7 @@ are Projects and Insights & Resources. The proposal is to match the nav.
 | Contact | `/contact` | `/contact` | none |
 | 404 | `/404` | `/404` | none |
 | Proposals | `/proposals/{slug}` | unchanged | none (owner to decide on password protection) |
+| Price items (unwanted template pages) | `/price-items/{slug}` | none | `/price-items/(.*)` → `/pricing` |
 
 Item slugs (`midlands-concrete`, `perth-web-design-pricing-…` etc.) do not change.
 
