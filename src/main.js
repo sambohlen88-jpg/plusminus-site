@@ -6,10 +6,13 @@ import * as clock from './modules/clock.js';
 import * as field from './modules/pm-field.js';
 import * as reveal from './modules/reveal.js';
 import * as workGallery from './modules/work-gallery.js';
+import * as marquee from './modules/marquee.js';
+import * as lenis from './core/lenis.js';
+import * as cursor from './core/cursor.js';
 
-const MODULES = [clock, field, reveal, workGallery];
-// Added per milestone: lenis, cursor, loader, transitions (core);
-// marquee, subtraction, price-builder (modules).
+const MODULES = [lenis, cursor, clock, field, reveal, marquee, workGallery];
+// Still to come: loader + transitions (core, with the page transitions milestone);
+// subtraction (waits for the owner's mockup), price-builder (modules).
 
 let destroyers = [];
 
