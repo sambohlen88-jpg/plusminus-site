@@ -5,10 +5,11 @@ import { inWebflowEditor, reducedMotion } from './utils/env.js';
 import * as clock from './modules/clock.js';
 import * as field from './modules/pm-field.js';
 import * as reveal from './modules/reveal.js';
+import * as workGallery from './modules/work-gallery.js';
 
-const MODULES = [clock, field, reveal];
+const MODULES = [clock, field, reveal, workGallery];
 // Added per milestone: lenis, cursor, loader, transitions (core);
-// marquee, subtraction, work-gallery, price-builder (modules).
+// marquee, subtraction, price-builder (modules).
 
 let destroyers = [];
 
