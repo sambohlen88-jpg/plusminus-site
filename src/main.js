@@ -9,10 +9,12 @@ import * as workGallery from './modules/work-gallery.js';
 import * as marquee from './modules/marquee.js';
 import * as lenis from './core/lenis.js';
 import * as cursor from './core/cursor.js';
+import * as forms from './core/forms.js';
+import * as priceBuilder from './modules/price-builder.js';
 
-const MODULES = [lenis, cursor, clock, field, reveal, marquee, workGallery];
+const MODULES = [lenis, cursor, forms, clock, field, reveal, marquee, workGallery, priceBuilder];
 // Still to come: loader + transitions (core, with the page transitions milestone);
-// subtraction (waits for the owner's mockup), price-builder (modules).
+// subtraction (waits for the owner's mockup).
 
 let destroyers = [];
 

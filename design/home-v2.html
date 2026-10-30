@@ -176,31 +176,32 @@
               <p class="text-size-large text-color-mid margin-0" data-pm-reveal="fade">Fixed prices, worked out in the open. Pick a starting point, add what you need, take away what you don't.</p>
               <div><a href="/pricing" class="pm-button is-secondary"><span class="pm-button_icon" aria-hidden="true">+</span><span>Open the full price builder</span></a></div>
             </div>
-            <div class="price_card" data-pm-reveal="fade" data-pm-reveal-delay="0.15">
+            <div class="price_card" data-pm-reveal="fade" data-pm-reveal-delay="0.15" data-pm-price-builder>
               <div class="text-style-mono text-color-mid">Start with</div>
               <div class="price_bases" role="group" aria-label="Base package">
-                <button type="button" class="price_base is-active" aria-pressed="true">Brochure · $1,800</button>
-                <button type="button" class="price_base" aria-pressed="false">Ecommerce · $4,000</button>
-                <button type="button" class="price_base" aria-pressed="false">Custom · from $6,000</button>
+                <button type="button" class="price_base is-active" aria-pressed="true" data-pm-price-item data-pm-price-group="base" data-pm-name="Brochure website" data-pm-price="1800" data-pm-price-default>Brochure · $1,800</button>
+                <button type="button" class="price_base" aria-pressed="false" data-pm-price-item data-pm-price-group="base" data-pm-name="Ecommerce / CMS" data-pm-price="4000">Ecommerce · $4,000</button>
+                <button type="button" class="price_base" aria-pressed="false" data-pm-price-item data-pm-price-group="base" data-pm-name="Custom application" data-pm-price="6000" data-pm-from="true">Custom · from $6,000</button>
               </div>
               <div class="price_items">
-                <div class="price_item" data-pm-price-item>
+                <div class="price_item" data-pm-price-item data-pm-price-group="addon" data-pm-name="Copywriting" data-pm-price="600">
                   <span class="price_item-name">Copywriting</span><span class="price_item-price text-style-mono">+$600</span>
-                  <button type="button" class="price_toggle" aria-pressed="false" aria-label="Add Copywriting">+</button>
+                  <button type="button" class="price_toggle" aria-pressed="false" data-pm-price-toggle aria-label="Copywriting">+</button>
                 </div>
-                <div class="price_item" data-pm-price-item>
+                <div class="price_item" data-pm-price-item data-pm-price-group="addon" data-pm-name="Local SEO setup" data-pm-price="450" data-pm-price-default>
                   <span class="price_item-name">Local SEO setup</span><span class="price_item-price text-style-mono">+$450</span>
-                  <button type="button" class="price_toggle is-on" aria-pressed="true" aria-label="Remove Local SEO setup">−</button>
+                  <button type="button" class="price_toggle is-on" aria-pressed="true" data-pm-price-toggle aria-label="Local SEO setup">−</button>
                 </div>
-                <div class="price_item" data-pm-price-item>
+                <div class="price_item" data-pm-price-item data-pm-price-group="monthly" data-pm-name="Hosting &amp; care plan" data-pm-price="49">
                   <span class="price_item-name">Hosting & care plan</span><span class="price_item-price text-style-mono">+$49/mo</span>
-                  <button type="button" class="price_toggle" aria-pressed="false" aria-label="Add Hosting & care plan">+</button>
+                  <button type="button" class="price_toggle" aria-pressed="false" data-pm-price-toggle aria-label="Hosting &amp; care plan">+</button>
                 </div>
               </div>
               <div class="price_total">
                 <span class="text-style-mono text-color-mid">Estimate, ex GST</span>
-                <span class="price_total-value" aria-live="polite">$2,250</span>
+                <span class="price_total-value" aria-live="polite" data-pm-price-total>$2,250</span>
               </div>
+              <div class="builder_monthly text-style-mono" data-pm-price-monthly></div>
             </div>
           </div>
           </div>
