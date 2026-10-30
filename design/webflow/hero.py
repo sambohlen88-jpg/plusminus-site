@@ -8,7 +8,7 @@ COLS12 = " ".join(["1fr"] * 12)
 
 CSS = f"""
 .section_hero {{ position: relative; display: flex; flex-direction: column; min-height: calc(100svh - 4.5rem); overflow: hidden; border-bottom: 1px solid var(--_colour---color--line); }}
-.hero_field {{ position: absolute; top: 0; right: 0; bottom: 0; left: 0; pointer-events: none; color: var(--_colour---color--line); background-image: url("{TILE}"); background-position: 50% 50%; background-size: 40px 40px; }}
+.hero_field {{ position: absolute; top: 0; right: 0; bottom: 0; left: 0; pointer-events: none; color: var(--_colour---color--line); background-image: url("{TILE}"); background-position: 50% 0; background-size: 40px 40px; }}
 .hero_padding {{ position: relative; z-index: 1; display: flex; flex-grow: 1; flex-shrink: 1; flex-basis: 0%; }}
 .hero_container {{ display: flex; flex-direction: column; justify-content: space-between; row-gap: 4rem; padding-top: var(--_spacing---space--32); padding-bottom: var(--_spacing---space--48); }}
 .hero_container.is-split {{ justify-content: center; }}

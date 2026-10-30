@@ -4,6 +4,8 @@ Design decisions the brief didn't specify. Newest first.
 
 | Date | Decision | Why | Owner OK? |
 | --- | --- | --- | --- |
+| 2026-10-30 | The field grid is anchored to the top of the hero (tile `background-position: 50% 0`). Height changes during the intro wait until it has played, and only width changes rebuild immediately. | On real phones the hero's height shifts during load (font swap, line splitting), which was cutting the ± intro off instead of letting it disperse (owner report). | n/a |
+| 2026-10-30 | The touch wave starts after the intro and is always soft grey, including on the logo's marks. | Lime marks were flashing inside the ± while it formed on mobile. | n/a |
 | 2026-10-30 | Hero A chosen. It's published at `/homev2` alongside the current home page. Variant B stays as a draft (`/v2-b`). | Owner approved hero A and asked for it on a separate page. | Yes |
 | 2026-10-30 | Nav wordmark height raised from 24px to 32px (28px below 479px). | Owner asked for a bigger logo. | Yes |
 | 2026-10-30 | Hero headline for both variants: "Websites for Perth businesses. Less fluff, more phone calls." The second sentence is set in mid grey. | It's the brief's third headline option. The hero's character comes from the ± field, not a slogan (owner feedback). The grey adds a + / − rhythm inside one line. | Pending |

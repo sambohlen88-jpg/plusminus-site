@@ -237,7 +237,7 @@
 .hero_field {
   position: absolute; inset: 0; pointer-events: none;
   color: var(--color-line); /* mark colour, read by the canvas */
-  background-image: url(assets/pm-plus-tile.svg); background-position: 50% 50%; background-size: 40px 40px;
+  background-image: url(assets/pm-plus-tile.svg); background-position: 50% 0; background-size: 40px 40px;
 }
 .hero_padding { position: relative; z-index: 1; display: flex; flex: 1; }
 .hero_container { display: flex; flex-direction: column; justify-content: space-between; row-gap: var(--space-64); padding-top: var(--space-32); padding-bottom: var(--space-48); }

@@ -42,7 +42,7 @@ function createField(el) {
 
   const canvas = document.createElement('canvas');
   canvas.setAttribute('aria-hidden', 'true');
-  canvas.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;display:block';
+  canvas.style.cssText = 'position:absolute;top:0;left:0;display:block';
   el.appendChild(canvas);
   const ctx = canvas.getContext('2d');
 
@@ -56,6 +56,7 @@ function createField(el) {
   let pointer = { x: -9999, y: -9999, active: false };
   let start = 0, raf = 0, visible = true, readyFired = false;
   let dim = 1; // alpha for non-logo marks
+  let introActive = false; // logo-minus marks stay neutral while flying in and out
   let soft = false; // touch wave: draw active marks quietly instead of in the signal colour
 
   function layout() {
@@ -64,14 +65,17 @@ function createField(el) {
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
     canvas.width = Math.round(w * dpr);
     canvas.height = Math.round(h * dpr);
+    canvas.style.width = `${w}px`; // fixed size: a deferred resize never stretches the drawing
+    canvas.style.height = `${h}px`;
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
-    // Grid centred on the field so it lines up with the CSS fallback tile.
-    const cols = Math.ceil(w / 2 / SPACING) + 1, rows = Math.ceil(h / 2 / SPACING) + 1;
+    // Grid centred horizontally and anchored to the top, matching the CSS fallback tile
+    // (background-position: 50% 0). A height change only adds or removes rows at the bottom.
+    const cols = Math.ceil(w / 2 / SPACING) + 1, rows = Math.ceil(h / SPACING);
     const pts = [];
-    for (let j = -rows; j <= rows; j++)
+    for (let j = 0; j <= rows; j++)
       for (let i = -cols; i <= cols; i++) {
-        const px = w / 2 + i * SPACING, py = h / 2 + j * SPACING;
+        const px = w / 2 + i * SPACING, py = SPACING / 2 + j * SPACING;
         if (px > -ARM && px < w + ARM && py > -ARM && py < h + ARM) pts.push(px, py);
       }
     n = pts.length / 2;
@@ -138,8 +142,9 @@ function createField(el) {
       document.dispatchEvent(new CustomEvent('pm:field-ready'));
     }
 
-    const wave = touch && !still;
-    soft = wave;
+    introActive = !still && time < (mode === 'intro' ? 2.9 : 1.4);
+    const wave = touch && !still && !introActive; // the wave starts once the ± has played
+    soft = touch;
     let moving = !still && (mode === 'intro' ? time < 2.7 : time < 1.3);
     for (let k = 0; k < n; k++) {
       let target = 0;
@@ -181,14 +186,15 @@ function createField(el) {
     ctx.lineWidth = LINE;
     ctx.lineCap = 'square';
     const plain = new Path2D(), logo = new Path2D(), lit = new Path2D(), quiet = new Path2D();
-    const formed = mode === 'hold' || dim < 0.99;
+    const formed = mode === 'hold' || dim < 0.999;
     for (let k = 0; k < n; k++) {
       const tk = t[k];
       if (isLogo[k] && formed) {
         const s = 1 + (logoScale - 1) * (1 - dim) / (mode === 'hold' ? 0.55 : 0.7);
-        markPath(tk > 0.5 && !logoMinus[k] ? lit : logo, x[k], y[k], s, tk);
+        markPath(tk > 0.5 && !logoMinus[k] && !soft ? lit : logo, x[k], y[k], s, tk);
       } else if (!(covered[k] && dim < 0.75)) {
-        markPath(tk > 0.5 ? (soft ? quiet : lit) : plain, x[k], y[k], 1 + 0.6 * tk, tk);
+        const neutral = introActive && isLogo[k] && logoMinus[k];
+        markPath(tk > 0.5 && !neutral ? (soft ? quiet : lit) : plain, x[k], y[k], 1 + 0.6 * tk, tk);
       }
     }
     ctx.globalAlpha = dim; ctx.strokeStyle = base; ctx.stroke(plain);
@@ -209,13 +215,26 @@ function createField(el) {
   function onLeave() { pointer.active = false; kick(); }
 
   // Rebuild on real size changes only (the observer also fires once on observe).
-  const ro = new ResizeObserver(() => {
-    const r = el.getBoundingClientRect();
-    if (Math.abs(r.width - w) < 1 && Math.abs(r.height - h) < 1) return;
+  // Height changes (fonts loading, text splitting, mobile toolbars) wait until the intro
+  // has played, so they can't cut it short. Width changes (rotation) rebuild straight away.
+  let pending = false, pendingTimer = 0;
+  const introDone = () => still || (performance.now() - start) / 1000 > (mode === 'intro' ? 2.7 : 1.3);
+  function rebuild() {
+    pending = false;
     layout();
-    start = performance.now() - 10000; // skip the intro after a resize
+    start = performance.now() - 10000; // the rebuilt field starts settled
     cancelAnimationFrame(raf);
     frame(performance.now());
+  }
+  const ro = new ResizeObserver(() => {
+    const r = el.getBoundingClientRect();
+    const widthChanged = Math.abs(r.width - w) >= 1;
+    if (!widthChanged && Math.abs(r.height - h) < 1) return;
+    if (widthChanged || introDone()) rebuild();
+    else if (!pending) {
+      pending = true;
+      pendingTimer = setTimeout(rebuild, ((mode === 'intro' ? 2.7 : 1.3) - (performance.now() - start) / 1000) * 1000 + 50);
+    }
   });
   const io = new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; kick(); });
 
@@ -230,6 +249,7 @@ function createField(el) {
 
   return () => {
     cancelAnimationFrame(raf);
+    clearTimeout(pendingTimer);
     ro.disconnect(); io.disconnect();
     window.removeEventListener('pointermove', onMove);
     document.documentElement.removeEventListener('pointerleave', onLeave);
